@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
+import { DataProvider } from './context/DataContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './pages/Login';
 import TesterDashboard from './pages/TesterDashboard';
@@ -41,42 +42,44 @@ const HomeRedirect = () => {
 function App() {
   return (
     <AuthProvider>
-      <Router>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/access-denied" element={<AccessDenied />} />
-          
-          <Route 
-            path="/tester/dashboard" 
-            element={
-              <ProtectedRoute allowedRoles={['TESTER']}>
-                <TesterDashboard />
-              </ProtectedRoute>
-            } 
-          />
-          
-          <Route 
-            path="/developer/dashboard" 
-            element={
-              <ProtectedRoute allowedRoles={['DEVELOPER']}>
-                <DeveloperDashboard />
-              </ProtectedRoute>
-            } 
-          />
-          
-          <Route 
-            path="/pm/dashboard" 
-            element={
-              <ProtectedRoute allowedRoles={['PROJECT_MANAGER']}>
-                <PmDashboard />
-              </ProtectedRoute>
-            } 
-          />
-          
-          <Route path="/" element={<HomeRedirect />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </Router>
+      <DataProvider>
+        <Router>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/access-denied" element={<AccessDenied />} />
+            
+            <Route 
+              path="/tester/dashboard" 
+              element={
+                <ProtectedRoute allowedRoles={['TESTER']}>
+                  <TesterDashboard />
+                </ProtectedRoute>
+              } 
+            />
+            
+            <Route 
+              path="/developer/dashboard" 
+              element={
+                <ProtectedRoute allowedRoles={['DEVELOPER']}>
+                  <DeveloperDashboard />
+                </ProtectedRoute>
+              } 
+            />
+            
+            <Route 
+              path="/pm/dashboard" 
+              element={
+                <ProtectedRoute allowedRoles={['PROJECT_MANAGER']}>
+                  <PmDashboard />
+                </ProtectedRoute>
+              } 
+            />
+            
+            <Route path="/" element={<HomeRedirect />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Router>
+      </DataProvider>
     </AuthProvider>
   );
 }
