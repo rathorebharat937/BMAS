@@ -1,0 +1,41 @@
+package com.bmas.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
+
+@RestController
+@RequestMapping("/api")
+public class DashboardController {
+
+    @GetMapping("/tester/dashboard")
+    @PreAuthorize("hasRole('TESTER')")
+    public ResponseEntity<?> getTesterDashboard() {
+        return ResponseEntity.ok(Map.of(
+                "role", "TESTER",
+                "message", "Welcome to the Tester Dashboard. You have access to bug reports and tracking tools."
+        ));
+    }
+
+    @GetMapping("/developer/dashboard")
+    @PreAuthorize("hasRole('DEVELOPER')")
+    public ResponseEntity<?> getDeveloperDashboard() {
+        return ResponseEntity.ok(Map.of(
+                "role", "DEVELOPER",
+                "message", "Welcome to the Developer Dashboard. You can view assigned bugs and updates."
+        ));
+    }
+
+    @GetMapping("/pm/dashboard")
+    @PreAuthorize("hasRole('PROJECT_MANAGER')")
+    public ResponseEntity<?> getPmDashboard() {
+        return ResponseEntity.ok(Map.of(
+                "role", "PROJECT_MANAGER",
+                "message", "Welcome to the Project Manager Dashboard. Here is the overview of teams, bugs, and workloads."
+        ));
+    }
+}
