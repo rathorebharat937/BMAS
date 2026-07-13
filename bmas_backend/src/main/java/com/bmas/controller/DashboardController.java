@@ -9,10 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
+<<<<<<< HEAD
 @RequestMapping("/api/dashboards")
 public class DashboardController {
 
     @GetMapping("/tester")
+=======
+@RequestMapping("/api")
+public class DashboardController {
+
+    @GetMapping("/tester/dashboard")
+>>>>>>> v1_bharat
     @PreAuthorize("hasRole('TESTER')")
     public ResponseEntity<?> getTesterDashboard() {
         return ResponseEntity.ok(Map.of(
@@ -21,7 +28,11 @@ public class DashboardController {
         ));
     }
 
+<<<<<<< HEAD
     @GetMapping("/developer")
+=======
+    @GetMapping("/developer/dashboard")
+>>>>>>> v1_bharat
     @PreAuthorize("hasRole('DEVELOPER')")
     public ResponseEntity<?> getDeveloperDashboard() {
         return ResponseEntity.ok(Map.of(
@@ -30,7 +41,11 @@ public class DashboardController {
         ));
     }
 
+<<<<<<< HEAD
     @GetMapping("/pm")
+=======
+    @GetMapping("/pm/dashboard")
+>>>>>>> v1_bharat
     @PreAuthorize("hasRole('PROJECT_MANAGER')")
     public ResponseEntity<?> getPmDashboard() {
         return ResponseEntity.ok(Map.of(

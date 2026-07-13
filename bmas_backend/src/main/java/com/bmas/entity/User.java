@@ -1,5 +1,9 @@
 package com.bmas.entity;
 
+<<<<<<< HEAD
+=======
+import com.fasterxml.jackson.annotation.JsonIgnore;
+>>>>>>> v1_bharat
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -27,6 +31,10 @@ public class User {
     private String email;
 
     @NotBlank(message = "Password is required")
+<<<<<<< HEAD
+=======
+    @JsonIgnore
+>>>>>>> v1_bharat
     @Column(nullable = false)
     private String password;
 
