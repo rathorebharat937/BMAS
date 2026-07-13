@@ -6,19 +6,10 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Login from './pages/Login';
 import TesterDashboard from './pages/TesterDashboard';
 import DeveloperDashboard from './pages/DeveloperDashboard';
-<<<<<<< HEAD
-import PMDashboardPage from './pages/PMDashboardPage';
-import ProjectListPage from './pages/ProjectListPage';
-import ProjectDetailsPage from './pages/ProjectDetailsPage';
-import CreateProjectPage from './pages/CreateProjectPage';
-import TeamManagementPage from './pages/TeamManagementPage';
-import AccessDenied from './pages/AccessDenied';
-=======
 import PmDashboard from './pages/PmDashboard';
 import AccessDenied from './pages/AccessDenied';
 import ProjectsPage from './pages/ProjectsPage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
->>>>>>> v1_bharat
 import { useAuth } from './hooks/useAuth';
 
 const HomeRedirect = () => {
@@ -77,59 +68,15 @@ function App() {
               } 
             />
             
-<<<<<<< HEAD
-            {/* PM Operations Module Routes */}
-=======
->>>>>>> v1_bharat
             <Route 
               path="/pm/dashboard" 
               element={
                 <ProtectedRoute allowedRoles={['PROJECT_MANAGER']}>
-<<<<<<< HEAD
-                  <PMDashboardPage />
-                </ProtectedRoute>
-              } 
-            />
-            
-            <Route 
-              path="/pm/projects" 
-              element={
-                <ProtectedRoute allowedRoles={['PROJECT_MANAGER']}>
-                  <ProjectListPage />
-                </ProtectedRoute>
-              } 
-            />
-            
-            <Route 
-              path="/pm/projects/new" 
-              element={
-                <ProtectedRoute allowedRoles={['PROJECT_MANAGER']}>
-                  <CreateProjectPage />
-=======
                   <PmDashboard />
->>>>>>> v1_bharat
                 </ProtectedRoute>
               } 
             />
 
-<<<<<<< HEAD
-            <Route 
-              path="/pm/projects/:id" 
-              element={
-                <ProtectedRoute allowedRoles={['PROJECT_MANAGER']}>
-                  <ProjectDetailsPage />
-                </ProtectedRoute>
-              } 
-            />
-
-            <Route 
-              path="/pm/projects/:id/team" 
-              element={
-                <ProtectedRoute allowedRoles={['PROJECT_MANAGER']}>
-                  <TeamManagementPage />
-                </ProtectedRoute>
-              } 
-=======
             {/* Project Management Routes — accessible to all authenticated roles */}
             <Route
               path="/projects"
@@ -147,7 +94,6 @@ function App() {
                   <ProjectDetailPage />
                 </ProtectedRoute>
               }
->>>>>>> v1_bharat
             />
             
             <Route path="/" element={<HomeRedirect />} />

@@ -39,9 +39,6 @@ build/
 .DS_Store
 
 # codential
-<<<<<<< HEAD
-application.properties
-=======
 application.properties
 
 # Node
@@ -52,4 +49,3 @@ venv/
 .venv/
 __pycache__/
 .env
->>>>>>> v1_bharat

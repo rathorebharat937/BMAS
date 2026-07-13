@@ -6,10 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-<<<<<<< HEAD
-=======
 import org.springframework.security.core.GrantedAuthority;
->>>>>>> v1_bharat
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,13 +15,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-<<<<<<< HEAD
-import java.util.Collections;
-import java.util.List;
-=======
 import java.util.Collection;
 import java.util.Collections;
->>>>>>> v1_bharat
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
@@ -64,21 +56,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
             if (jwtUtil.validateToken(jwt, userDetails)) {
                 String activeRole = jwtUtil.extractActiveRole(jwt);
-<<<<<<< HEAD
-                List<SimpleGrantedAuthority> authorities;
-                
-                if (activeRole != null) {
-                    authorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + activeRole));
-                } else {
-                    authorities = (List<SimpleGrantedAuthority>) userDetails.getAuthorities();
-=======
                 Collection<? extends GrantedAuthority> authorities;
 
                 if (activeRole != null) {
                     authorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + activeRole));
                 } else {
                     authorities = userDetails.getAuthorities();
->>>>>>> v1_bharat
                 }
 
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(

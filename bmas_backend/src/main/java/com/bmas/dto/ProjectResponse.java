@@ -3,16 +3,6 @@ package com.bmas.dto;
 import java.time.LocalDateTime;
 
 public class ProjectResponse {
-<<<<<<< HEAD
-    private Long id;
-    private String name;
-    private String description;
-    private Long createdBy;
-    private boolean transparencyEnabled;
-    private String status;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-=======
 
     private Long id;
     private String name;
@@ -20,30 +10,18 @@ public class ProjectResponse {
     private String createdBy;
     private LocalDateTime createdAt;
     private int memberCount;
->>>>>>> v1_bharat
 
     public ProjectResponse() {
     }
 
-<<<<<<< HEAD
-    public ProjectResponse(Long id, String name, String description, Long createdBy, boolean transparencyEnabled, String status, LocalDateTime createdAt, LocalDateTime updatedAt) {
-=======
     public ProjectResponse(Long id, String name, String description, String createdBy,
                            LocalDateTime createdAt, int memberCount) {
->>>>>>> v1_bharat
         this.id = id;
         this.name = name;
         this.description = description;
         this.createdBy = createdBy;
-<<<<<<< HEAD
-        this.transparencyEnabled = transparencyEnabled;
-        this.status = status;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-=======
         this.createdAt = createdAt;
         this.memberCount = memberCount;
->>>>>>> v1_bharat
     }
 
     public Long getId() {
@@ -70,32 +48,6 @@ public class ProjectResponse {
         this.description = description;
     }
 
-<<<<<<< HEAD
-    public Long getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(Long createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public boolean isTransparencyEnabled() {
-        return transparencyEnabled;
-    }
-
-    public void setTransparencyEnabled(boolean transparencyEnabled) {
-        this.transparencyEnabled = transparencyEnabled;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-=======
     public String getCreatedBy() {
         return createdBy;
     }
@@ -104,7 +56,6 @@ public class ProjectResponse {
         this.createdBy = createdBy;
     }
 
->>>>>>> v1_bharat
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -113,14 +64,6 @@ public class ProjectResponse {
         this.createdAt = createdAt;
     }
 
-<<<<<<< HEAD
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-=======
     public int getMemberCount() {
         return memberCount;
     }
@@ -176,6 +119,5 @@ public class ProjectResponse {
         public ProjectResponse build() {
             return new ProjectResponse(id, name, description, createdBy, createdAt, memberCount);
         }
->>>>>>> v1_bharat
     }
 }

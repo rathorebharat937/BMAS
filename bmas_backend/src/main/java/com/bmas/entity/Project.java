@@ -1,11 +1,8 @@
 package com.bmas.entity;
 
 import jakarta.persistence.*;
-<<<<<<< HEAD
-=======
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
->>>>>>> v1_bharat
 import java.time.LocalDateTime;
 
 @Entity
@@ -16,22 +13,6 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-<<<<<<< HEAD
-    @Column(nullable = false)
-    private String name;
-
-    @Column(columnDefinition = "TEXT")
-    private String description;
-
-    @Column(name = "created_by", nullable = false)
-    private Long createdBy;
-
-    @Column(name = "transparency_enabled", nullable = false)
-    private boolean transparencyEnabled = true;
-
-    @Column(nullable = false)
-    private String status = "ACTIVE"; // ACTIVE, ARCHIVED, COMPLETED
-=======
     @NotBlank(message = "Project name is required")
     @Size(max = 100, message = "Project name must not exceed 100 characters")
     @Column(nullable = false, unique = true)
@@ -44,20 +25,10 @@ public class Project {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "created_by", nullable = false)
     private User createdBy;
->>>>>>> v1_bharat
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-<<<<<<< HEAD
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
-
-    public Project() {
-    }
-
-    public Project(Long id, String name, String description, Long createdBy, boolean transparencyEnabled, String status) {
-=======
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
@@ -70,39 +41,24 @@ public class Project {
 
     public Project(Long id, String name, String description, User createdBy,
                    LocalDateTime createdAt, LocalDateTime updatedAt, boolean active) {
->>>>>>> v1_bharat
         this.id = id;
         this.name = name;
         this.description = description;
         this.createdBy = createdBy;
-<<<<<<< HEAD
-        this.transparencyEnabled = transparencyEnabled;
-        this.status = status;
-=======
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.active = active;
->>>>>>> v1_bharat
     }
 
     @PrePersist
     protected void onCreate() {
-<<<<<<< HEAD
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
-=======
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
->>>>>>> v1_bharat
     }
 
     @PreUpdate
     protected void onUpdate() {
-<<<<<<< HEAD
-        updatedAt = LocalDateTime.now();
-=======
         this.updatedAt = LocalDateTime.now();
->>>>>>> v1_bharat
     }
 
     public Long getId() {
@@ -129,32 +85,6 @@ public class Project {
         this.description = description;
     }
 
-<<<<<<< HEAD
-    public Long getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(Long createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public boolean isTransparencyEnabled() {
-        return transparencyEnabled;
-    }
-
-    public void setTransparencyEnabled(boolean transparencyEnabled) {
-        this.transparencyEnabled = transparencyEnabled;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-=======
     public User getCreatedBy() {
         return createdBy;
     }
@@ -163,7 +93,6 @@ public class Project {
         this.createdBy = createdBy;
     }
 
->>>>>>> v1_bharat
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -179,8 +108,6 @@ public class Project {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
-<<<<<<< HEAD
-=======
 
     public boolean isActive() {
         return active;
@@ -244,5 +171,4 @@ public class Project {
             return new Project(id, name, description, createdBy, createdAt, updatedAt, active);
         }
     }
->>>>>>> v1_bharat
 }

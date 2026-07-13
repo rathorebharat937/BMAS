@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
-=======
 import { useNavigate } from 'react-router-dom';
->>>>>>> v1_bharat
 import { useAuth } from '../hooks/useAuth';
 import { useData } from '../context/DataContext';
 import AppLayout from './AppLayout';
@@ -17,10 +14,7 @@ import BugDetailsModal from './BugDetailsModal';
 
 export const DashboardContainer = ({ role }) => {
   const { user } = useAuth();
-<<<<<<< HEAD
-=======
   const navigate = useNavigate();
->>>>>>> v1_bharat
   const { 
     projects, 
     sprints, 
@@ -38,8 +32,6 @@ export const DashboardContainer = ({ role }) => {
 
   // Navigation states
   const [currentView, setCurrentView] = useState('dashboard');
-<<<<<<< HEAD
-=======
 
   // When user clicks "Projects" in sidebar, navigate to the real /projects page
   const handleViewChange = (view) => {
@@ -49,7 +41,6 @@ export const DashboardContainer = ({ role }) => {
       setCurrentView(view);
     }
   };
->>>>>>> v1_bharat
   
   // Modals visibility states
   const [isBugFormOpen, setIsBugFormOpen] = useState(false);
@@ -281,11 +272,7 @@ export const DashboardContainer = ({ role }) => {
   return (
     <AppLayout 
       currentView={currentView} 
-<<<<<<< HEAD
-      onViewChange={setCurrentView}
-=======
       onViewChange={handleViewChange}
->>>>>>> v1_bharat
       onQuickCreateBug={() => handleOpenBugForm()}
     >
       
