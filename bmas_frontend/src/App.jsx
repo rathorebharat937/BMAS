@@ -6,7 +6,11 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Login from './pages/Login';
 import TesterDashboard from './pages/TesterDashboard';
 import DeveloperDashboard from './pages/DeveloperDashboard';
-import PmDashboard from './pages/PmDashboard';
+import PMDashboardPage from './pages/PMDashboardPage';
+import ProjectListPage from './pages/ProjectListPage';
+import ProjectDetailsPage from './pages/ProjectDetailsPage';
+import CreateProjectPage from './pages/CreateProjectPage';
+import TeamManagementPage from './pages/TeamManagementPage';
 import AccessDenied from './pages/AccessDenied';
 import { useAuth } from './hooks/useAuth';
 
@@ -66,11 +70,48 @@ function App() {
               } 
             />
             
+            {/* PM Operations Module Routes */}
             <Route 
               path="/pm/dashboard" 
               element={
                 <ProtectedRoute allowedRoles={['PROJECT_MANAGER']}>
-                  <PmDashboard />
+                  <PMDashboardPage />
+                </ProtectedRoute>
+              } 
+            />
+            
+            <Route 
+              path="/pm/projects" 
+              element={
+                <ProtectedRoute allowedRoles={['PROJECT_MANAGER']}>
+                  <ProjectListPage />
+                </ProtectedRoute>
+              } 
+            />
+            
+            <Route 
+              path="/pm/projects/new" 
+              element={
+                <ProtectedRoute allowedRoles={['PROJECT_MANAGER']}>
+                  <CreateProjectPage />
+                </ProtectedRoute>
+              } 
+            />
+
+            <Route 
+              path="/pm/projects/:id" 
+              element={
+                <ProtectedRoute allowedRoles={['PROJECT_MANAGER']}>
+                  <ProjectDetailsPage />
+                </ProtectedRoute>
+              } 
+            />
+
+            <Route 
+              path="/pm/projects/:id/team" 
+              element={
+                <ProtectedRoute allowedRoles={['PROJECT_MANAGER']}>
+                  <TeamManagementPage />
                 </ProtectedRoute>
               } 
             />
